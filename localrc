@@ -1,59 +1,35 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
-{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\froman\fcharset0 Times-Roman;}
-{\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\sl340\sa240\partightenfactor0
-
-\f0\fs30 \cf0 \expnd0\expndtw0\kerning0
-# Minimal Content\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad 
-\f1\fs24 \
-
-\f0\fs30 ADMIN_PASSWORD="nova" MYSQL_PASSWORD=nova 
-\f1\fs24 \
-
-\f0\fs30 RABBIT_PASSWORD=nova SERVICE_PASSWORD=$ADMIN_PASSWORD SERVICE_TOKEN=$ADMIN_PASSWORD 
-\f1\fs24 \
-
-\f0\fs30 # Multi\'adhost\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad #ENABLED_SERVICES=n\'adcpu,rabbit,q\'adagt #SERVICE_HOST=<IP of the controller node> #MYSQL_HOST=$SERVICE_HOST #RABBIT_HOST=$SERVICE_HOST 
-\f1\fs24 \
-
-\f0\fs30 # Neutron\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad\'ad\u8232 disable_service n\'adnet enable_service neutron enable_service q\'adsvc enable_service q\'adagt enable_service q\'addhcp enable_service q\'adl3 enable_service q\'admeta enable_service q\'adlbaas 
-\f1\fs24 \
-
-\f0\fs30 OVS_ENABLE_TUNNELING=False\uc0\u8232 # Bug https://bugs.launchpad.net/neutron/+bug/1112912 LIBVIRT_FIREWALL_DRIVER=nova.virt.firewall.NoopFirewallDriver 
-\f1\fs24 \
-
-\f0\fs30 # Ceilometer\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad\u8232 CEILOMETER_BACKEND=mongo\u8232 enable_service ceilometer\'adacompute ceilometer\'adacentral enable_service ceilometer\'adanotification\u8232 enable_service ceilometer\'adcollector ceilometer\'adapi\u8232 enable_service ceilometer\'adalarm\'adnotifier ceilometer\'adalarm\'adevaluator 
-\f1\fs24 \
-
-\f0\fs30 # Heat\uc0\u8232 # \'ad\'ad\'ad\'ad\u8232 enable_service heat enable_service h\'adapi enable_service h\'adapi\'adcfg enable_service h\'adapi\'adcw enable_service h\'adeng 
-\f1\fs24 \
-
-\f0\fs30 # Swift 
-\f1\fs24 \
-
-\f0\fs30 # \'ad\'ad\'ad\'ad\'ad\uc0\u8232 enable_service s\'adproxy enable_service s\'adobject enable_service s\'adcontainer enable_service s\'adaccount SWIFT_REPLICAS=1 SWIFT_HASH=nova 
-\f1\fs24 \
-
-\f0\fs30 # Keystone\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad\'ad\'ad KEYSTONE_CATALOG_BACKEND=sql 
-\f1\fs24 \
-
-\f0\fs30 # Cinder\uc0\u8232 # \'ad\'ad\'ad\'ad\'ad\'ad VOLUME_BACKING_FILE_SIZE=2560M 
-\f1\fs24 \
-
-\f0\fs30 # Do not modify below if you don't know what you are doing HOST_IP_IFACE=eth1\uc0\u8232 OFFLINE=false\u8232 disable_service tempest 
-\f1\fs24 \
-
-\f0\fs30 disable_service n\'adobj\uc0\u8232 disable_service ec2 APACHE_ENABLED_SERVICES+=keystone,swift 
-\f1\fs24 \
-
-\f0\fs30 GIT_DEST=/home/stack/devstack 
-\f1\fs24 \
-
-\f0\fs30 # Forcing devstack to use cirros\'ad0.3.2\'adx86_64\'aduec image DEFAULT_IMAGE_NAME="cirros\'ad0.3.2\'adx86_64\'aduec.tar.gz" IMAGE_URLS="http://download.cirros\'adcloud.net/0.3.2/cirros\'ad0.3.2\'adx86_64\'aduec.tar.gz" 
-\f1\fs24 \
-
-\f0\fs30 #OSTR\'ad311: Force Hypervisor type to qemu LIBVIRT_TYPE=qemu\uc0\u8232 
-\f1\fs24 \
-}
+# Minimal Content
+# ­­­­­­­­­­­­­­­
+ADMIN_PASSWORD="nova" MYSQL_PASSWORD=nova
+ RABBIT_PASSWORD=nova SERVICE_PASSWORD=$ADMIN_PASSWORD SERVICE_TOKEN=$ADMIN_PASSWORD
+# Multi­host
+# ­­­­­­­­­­ #ENABLED_SERVICES=n­cpu,rabbit,q­agt #SERVICE_HOST=<IP of the controller node> #MYSQL_HOST=$SERVICE_HOST #RABBIT_HOST=$SERVICE_HOST
+# Neutron
+# ­­­­­­­
+disable_service n­net enable_service neutron enable_service q­svc enable_service q­agt enable_service q­dhcp enable_service q­l3 enable_service q­meta enable_service q­lbaas
+OVS_ENABLE_TUNNELING=False
+# Bug https://bugs.launchpad.net/neutron/+bug/1112912 LIBVIRT_FIREWALL_DRIVER=nova.virt.firewall.NoopFirewallDriver
+# Ceilometer
+# ­­­­­­­­­
+CEILOMETER_BACKEND=mongo
+enable_service ceilometer­acompute ceilometer­acentral enable_service ceilometer­anotification
+enable_service ceilometer­collector ceilometer­api
+enable_service ceilometer­alarm­notifier ceilometer­alarm­evaluator
+# Heat
+# ­­­­
+enable_service heat enable_service h­api enable_service h­api­cfg enable_service h­api­cw enable_service h­eng
+# Swift
+# ­­­­­
+enable_service s­proxy enable_service s­object enable_service s­container enable_service s­account SWIFT_REPLICAS=1 SWIFT_HASH=nova
+# Keystone
+# ­­­­­­­­ KEYSTONE_CATALOG_BACKEND=sql
+# Cinder
+# ­­­­­­ VOLUME_BACKING_FILE_SIZE=2560M
+# Do not modify below if you don't know what you are doing HOST_IP_IFACE=eth1
+OFFLINE=false
+disable_service tempest
+disable_service n­obj
+disable_service ec2 APACHE_ENABLED_SERVICES+=keystone,swift
+GIT_DEST=/home/stack/devstack
+# Forcing devstack to use cirros­0.3.2­x86_64­uec image DEFAULT_IMAGE_NAME="cirros­0.3.2­x86_64­uec.tar.gz" IMAGE_URLS="http://download.cirros­cloud.net/0.3.2/cirros­0.3.2­x86_64­uec.tar.gz"
+#OSTR­311: Force Hypervisor type to qemu LIBVIRT_TYPE=qemu
